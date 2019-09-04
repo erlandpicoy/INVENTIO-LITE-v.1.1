@@ -13,9 +13,8 @@
 </div>
 		<h1>Lista de Productos</h1>
 		<div class="clearfix"></div>
-
-
 <?php
+
 $page = 1;
 if(isset($_GET["page"])){
 	$page=$_GET["page"];
@@ -62,12 +61,12 @@ if($px<=$npaginas):
 <div class="clearfix"></div>
 <br><table class="table table-bordered table-hover">
 	<thead>
-		<th>Codigo</th>
-		<th>Imagen</th>
-		<th>Nombre</th>
+		<th>Codigo de Barra</th>
+		<!-- <th>Imagen</th> -->
+		<th>Marca</th>
+		<th>Producto</th>
 		<th>Precio Entrada</th>
-		<th>Precio Salida</th>
-		<th>Categoria</th>
+		<!-- <th>Precio Salida</th> -->		
 		<th>Minima</th>
 		<th>Activo</th>
 		<th></th>
@@ -75,15 +74,16 @@ if($px<=$npaginas):
 	<?php foreach($curr_products as $product):?>
 	<tr>
 		<td><?php echo $product->barcode; ?></td>
-		<td>
+		<td><?php if($product->category_id!=null){echo $product->getCategory()->name;}else{ echo "<center>----</center>"; }  ?></td>
+
+		<!-- <td>
 			<?php if($product->image!=""):?>
 				<img src="storage/products/<?php echo $product->image;?>" style="width:64px;">
 			<?php endif;?>
-		</td>
+		</td> -->
 		<td><?php echo $product->name; ?></td>
 		<td>$ <?php echo number_format($product->price_in,2,'.',','); ?></td>
-		<td>$ <?php echo number_format($product->price_out,2,'.',','); ?></td>
-		<td><?php if($product->category_id!=null){echo $product->getCategory()->name;}else{ echo "<center>----</center>"; }  ?></td>
+		<!-- <td>$ <?php echo number_format($product->price_out,2,'.',','); ?></td> -->
 		<td><?php echo $product->inventary_min; ?></td>
 		<td><?php if($product->is_active): ?><i class="fa fa-check"></i><?php endif;?></td>
 		
