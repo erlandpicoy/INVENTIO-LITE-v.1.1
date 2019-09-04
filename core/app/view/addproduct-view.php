@@ -6,7 +6,8 @@ if(count($_POST)>0){
   $product->barcode = $_POST["barcode"];
   $product->name = $_POST["name"];
   $product->price_in = $_POST["price_in"];
-  $product->price_out = $_POST["price_out"];
+  // $product->price_out = $_POST["price_out"];
+  $product->price_out = $_POST["price_in"];
   $product->unit = $_POST["unit"];
   $product->description = $_POST["description"];
   $product->presentation = $_POST["presentation"];
