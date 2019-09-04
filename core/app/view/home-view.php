@@ -67,7 +67,7 @@ foreach($products as $product){
             <div class="inner">
               <h3><?php echo count(CategoryData::getAll());?></h3>
 
-              <p>Categorias</p>
+              <p>Marcas</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>

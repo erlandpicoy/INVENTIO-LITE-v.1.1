@@ -37,6 +37,7 @@ $curr_products = ProductData::getAllByPage($products[($page-1)*$limit]->id,$limi
 $npaginas = floor(count($products)/$limit);
  $spaginas = count($products)%$limit;
 
+
 if($spaginas>0){ $npaginas++;}
 
 	?>
@@ -56,6 +57,7 @@ if($px<=$npaginas):
 ?>
 <a class="btn btn-sm btn-default" href="<?php echo "index.php?view=products&limit=$limit&page=".($px); ?>">Adelante <i class="glyphicon glyphicon-chevron-right"></i></a>
 <?php endif; ?>
+
 </div>
 <div class="clearfix"></div>
 <br><table class="table table-bordered table-hover">
@@ -111,6 +113,7 @@ for($i=0;$i<$npaginas;$i++){
 
 	<?php
 }else{
+	
 	?>
 	<div class="jumbotron">
 		<h2>No hay productos</h2>

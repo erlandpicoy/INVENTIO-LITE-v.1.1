@@ -117,7 +117,7 @@
             <li class="treeview">
               <a href="#"><i class='fa fa-database'></i> <span>Catalogos</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="./?view=categories">Categorias</a></li>
+                <li><a href="./?view=categories">Marcas</a></li>
                 <li><a href="./?view=clients">Clientes</a></li>
                 <li><a href="./?view=providers">Proveedores</a></li>
               </ul>
@@ -164,15 +164,17 @@
         <?php View::load("index");?>
         </div>
       </div><!-- /.content-wrapper -->
-
-        <footer class="main-footer">
+      <!--        
+      <footer class="main-footer">
         <div class="pull-right hidden-xs">
           <b>Version</b> 3.0
         </div>
         <strong>Copyright &copy; 2019 <a href="http://evilnapsis.com/company/" target="_blank">Evilnapsis</a></strong>
       </footer>
+      -->
+
       <?php else:?>
-<div class="login-box">
+    <div class="login-box">
       <div class="login-logo">
         <a href="./">INVENTIO<b>LITE</b></a>
       </div><!-- /.login-logo -->

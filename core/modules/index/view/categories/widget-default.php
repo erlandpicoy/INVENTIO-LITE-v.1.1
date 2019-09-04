@@ -1,9 +1,9 @@
 <div class="row">
 	<div class="col-md-12">
 <div class="btn-group pull-right">
-	<a href="index.php?view=newcategory" class="btn btn-default"><i class='fa fa-th-list'></i> Nueva Categoria</a>
+	<a href="index.php?view=newcategory" class="btn btn-default"><i class='fa fa-th-list'></i> Nueva Marca</a>
 </div>
-		<h1>Categorias</h1>
+		<h1>Marcas</h1>
 <br>
 		<?php
 
@@ -31,7 +31,7 @@
 
 
 		}else{
-			echo "<p class='alert alert-danger'>No hay Categorias</p>";
+			echo "<p class='alert alert-danger'>No hay Marcas</p>";
 		}
 
 

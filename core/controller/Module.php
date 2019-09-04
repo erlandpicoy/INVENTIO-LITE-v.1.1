@@ -14,10 +14,5 @@ class Module {
 		include "core/app/".Core::$theme."/layouts/layout.php";
 		}
 	}
-
-
 }
-
-
-
 ?>
