@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-12">
-	<h1>Reabastecer Inventario</h1>
+	<h1>Lista Reabastecer Inventario</h1>
 	<p><b>Buscar producto por nombre o por codigo:</b></p>
 		<form>
 		<div class="row">
@@ -180,22 +180,18 @@ $clients = PersonData::getProviders();
     </div>
   </div>
 </form>
-
 <script>
-	
-	alert("Operacion Realizada");		
-
-	// $("#processsell").submit(function(e){
-	// 	money = $("#money").val();
-	// 	if(money<<?php echo $total;?>){
-	// 		alert("No se puede efectuar la operacion");
-	// 		e.preventDefault();
-	// 	}else{
-	// 		go = confirm("Cambio: $"+(money-<?php echo $total;?>));
-	// 		if(go){}
-	// 			else{e.preventDefault();}
-	// 	}
-	// });
+	$("#processsell").submit(function(e){
+		money = $("#money").val();
+		if(money<<?php echo $total;?>){
+			alert("No se puede efectuar la operacion");
+			e.preventDefault();
+		}else{
+			go = confirm("Cambio: $"+(money-<?php echo $total;?>));
+			if(go){}
+				else{e.preventDefault();}
+		}
+	});
 </script>
 </div>
 </div>

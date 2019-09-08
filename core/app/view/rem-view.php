@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-md-12">
-	<h1>Reabastecer Inventario</h1>
-	<p><b>Buscar producto por nombre o por codigo:</b></p>
+	<h1>Lista de Pedidos</h1>
+	<p><b>Buscar y Agregar productos a la lista:</b></p>
 		<form>
 		<div class="row">
 			<div class="col-md-6">
@@ -24,9 +24,9 @@ if(count($products)>0){
 <table class="table table-bordered table-hover">
 	<thead>
 		<th>Codigo</th>
-		<th>Nombre</th>
-		<th>Unidad</th>
-		<th>Precio unitario</th>
+		<th>Producto</th>
+		<!-- <th>Unidad</th> -->
+		<th>Costo unitario</th>
 		<th>En inventario</th>
 		<th>Cantidad</th>
 		<th style="width:100px;"></th>
@@ -40,7 +40,7 @@ $q= OperationData::getQYesF($product->id);
 	<tr class="<?php if($q<=$product->inventary_min){ echo "danger"; }?>">
 		<td style="width:80px;"><?php echo $product->id; ?></td>
 		<td><?php echo $product->name; ?></td>
-		<td><?php echo $product->unit; ?></td>
+		<!-- <td><?php echo $product->unit; ?></td> -->
 		<td><b>$<?php echo $product->price_in; ?></b></td>
 		<td>
 			<?php echo $q; ?>
@@ -180,22 +180,18 @@ $clients = PersonData::getProviders();
     </div>
   </div>
 </form>
-
 <script>
-	
-	alert("Operacion Realizada");		
-
-	// $("#processsell").submit(function(e){
-	// 	money = $("#money").val();
-	// 	if(money<<?php echo $total;?>){
-	// 		alert("No se puede efectuar la operacion");
-	// 		e.preventDefault();
-	// 	}else{
-	// 		go = confirm("Cambio: $"+(money-<?php echo $total;?>));
-	// 		if(go){}
-	// 			else{e.preventDefault();}
-	// 	}
-	// });
+	$("#processsell").submit(function(e){
+		money = $("#money").val();
+		if(money<<?php echo $total;?>){
+			alert("No se puede efectuar la operacion");
+			e.preventDefault();
+		}else{
+			go = confirm("Cambio: $"+(money-<?php echo $total;?>));
+			if(go){}
+				else{e.preventDefault();}
+		}
+	});
 </script>
 </div>
 </div>

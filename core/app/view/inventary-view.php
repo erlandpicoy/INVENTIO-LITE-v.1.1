@@ -56,9 +56,9 @@ if($px<=$npaginas):
 </div>
 <div class="clearfix"></div>
 <br><table class="table table-bordered table-hover">
-	<thead>
-		<th>Codigo</th>
-		<th>Nombre</th>
+	<thead>	    
+	    <th>Marca</th>
+		<th>Producto</th>
 		<th>Disponible</th>
 		<th></th>
 	</thead>
@@ -66,12 +66,12 @@ if($px<=$npaginas):
 	$q=OperationData::getQYesF($product->id);
 	?>
 	<tr class="<?php if($q<=$product->inventary_min/2){ echo "danger";}else if($q<=$product->inventary_min){ echo "warning";}?>">
-		<td><?php echo $product->id; ?></td>
+		<!-- <td><?php echo $product->id; ?></td> -->
+		
+		<td><?php if($product->category_id!=null){echo $product->getCategory()->name;}else{ echo "<center>----</center>"; }  ?></td>
 		<td><?php echo $product->name; ?></td>
-		<td>
-			
+		<td>			
 			<?php echo $q; ?>
-
 		</td>
 		<td style="width:93px;">
 <!--		<a href="index.php?view=input&product_id=<?php echo $product->id; ?>" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-circle-arrow-up"></i> Alta</a>-->
