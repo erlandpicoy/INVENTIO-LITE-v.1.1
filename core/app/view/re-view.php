@@ -23,7 +23,7 @@ if(count($products)>0){
 <h3>Resultados de la Busqueda</h3>
 <table class="table table-bordered table-hover">
 	<thead>
-		<th>Codigo</th>
+		<th>Codigoooooo</th>
 		<th>Nombre</th>
 		<th>Unidad</th>
 		<th>Precio unitario</th>
@@ -116,6 +116,7 @@ $product = ProductData::getById($p["product_id"]);
 	<td><?php echo $product->name; ?></td>
 	<td><b>$ <?php echo number_format($product->price_in); ?></b></td>
 	<td><b>$ <?php  $pt = $product->price_in*$p["q"]; $total +=$pt; echo number_format($pt); ?></b></td>
+	<!-- <td style="width:30px;"><a href="index.php?view=clearre&product_id=<?php echo $product->id; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Cancelar</a></td> -->
 	<td style="width:30px;"><a href="index.php?view=clearre&product_id=<?php echo $product->id; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Cancelar</a></td>
 </tr>
 

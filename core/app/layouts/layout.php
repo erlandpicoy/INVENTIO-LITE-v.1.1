@@ -62,7 +62,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <!-- The user image in the navbar-->
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                  <span class=""><?php if(isset($_SESSION["user_id"]) ){ echo UserData::getById($_SESSION["user_id"])->name; 
+                  <span class=""><?php if(isset($_SESSION["user_id"]) ){ echo UserData::getById($_SESSION["user_id"])->name;
 
                   }?> <b class="caret"></b> </span>
 
@@ -73,7 +73,7 @@
                       <a href="http://evilnapsis.com/" target="_blank" class="">Ir a Evilnapsis</a>
                       <a href="http://evilnapsis.com/product/inventio-max/" target="_blank" class="">Ver Inventio Max</a>
                   </li>
-                  
+
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-right">
@@ -122,19 +122,31 @@
             <li><a href="./?view=products"><i class='fa fa-glass'></i> <span>Productos</span></a></li>
 
             <li class="treeview">
-              <a href="#"><i class='fa fa-area-chart'></i> <span>Inventario</span> <i class="fa fa-angle-left pull-right"></i></a>
+
+
+              <a href="#"><i class='fa fa-area-chart'></i> <span>Entradas</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
+                <li><a href="./?view=rem">Entrada Mercaderia</a></li>
+                <li><a href="./?view=res">Historial de Entradas</a></li>
                 <li><a href="./?view=inventary">Inventario</a></li>
-                <li><a href="./?view=re">Abastecer</a></li>
-                <li><a href="./?view=rem">Cargar Mercaderia</a></li>                
-                <li><a href="./?view=res">Historial de Cargas</a></li>
+                <!-- <li><a href="./?view=re">Abastecer</a></li> -->
               </ul>
             </li>
-            
 
-            <li><a href="./?view=sell"><i class='fa fa-usd'></i> <span>Vender</span></a></li>
+            <li class="treeview">
+              <a href="#"><i class='fa fa-database'></i> <span>Salidas</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="./?view=sell">Salida de Mercaderia</a></li>
+                <li><a href="./?view=sells">Historial de Salidas</a></li>
+                
+                <li><a href="./?view=box">Costo Total Salida</a></li>
+              </ul>
+            </li>
+
+
+            <!-- <li><a href="./?view=sell"><i class='fa fa-usd'></i> <span>Vender</span></a></li>
             <li><a href="./?view=sells"><i class='fa fa-shopping-cart'></i> <span>Ventas</span></a></li>
-            <li><a href="./?view=box"><i class='fa fa-cube'></i> <span>Caja</span></a></li>
+            <li><a href="./?view=box"><i class='fa fa-cube'></i> <span>Caja</span></a></li> -->
 
             <li><a href="./?view=perclient"><i class='fa fa-child'></i> <span>Consumo Por Cliente</span></a></li>
 
@@ -145,6 +157,7 @@
                 <li><a href="./?view=sellreports">Ventas</a></li>
               </ul>
             </li>
+
 
 
             <li class="treeview">
@@ -169,7 +182,7 @@
         <?php View::load("index");?>
         </div>
       </div><!-- /.content-wrapper -->
-      <!--        
+      <!--
       <footer class="main-footer">
         <div class="pull-right hidden-xs">
           <b>Version</b> 3.0
@@ -201,7 +214,7 @@
           </div>
         </form>
       </div><!-- /.login-box-body -->
-    </div><!-- /.login-box -->  
+    </div><!-- /.login-box -->
       <?php endif;?>
 
 

@@ -49,7 +49,7 @@ $q= OperationData::getQYesF($product->id);
 		<input type="hidden" name="product_id" value="<?php echo $product->id; ?>">
 		<input type="" class="form-control" required name="q" placeholder="Cantidad de producto ..."></td>
 		<td style="width:100px;">
-		<button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-refresh"></i> Agregar</button>
+		<button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-refresh"></i> Agregarrr</button>
 		</td>
 	</tr>
 	</form>
@@ -102,7 +102,7 @@ $total = 0;
 	<th style="width:30px;">Cantidad</th>
 	<th style="width:30px;">Unidad</th>
 	<th>Producto</th>
-	<th style="width:30px;">Precio Unitario</th>
+	<th style="width:30px;">Preciosssss Unitario</th>
 	<th style="width:30px;">Precio Total</th>
 	<th ></th>
 </thead>
@@ -116,6 +116,7 @@ $product = ProductData::getById($p["product_id"]);
 	<td><?php echo $product->name; ?></td>
 	<td><b>$ <?php echo number_format($product->price_in); ?></b></td>
 	<td><b>$ <?php  $pt = $product->price_in*$p["q"]; $total +=$pt; echo number_format($pt); ?></b></td>
+	<!-- <td style="width:30px;"><a href="index.php?view=clearre&product_id=<?php echo $product->id; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Cancelar</a></td> -->
 	<td style="width:30px;"><a href="index.php?view=clearre&product_id=<?php echo $product->id; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Cancelar</a></td>
 </tr>
 

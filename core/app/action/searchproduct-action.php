@@ -36,7 +36,7 @@ $q= OperationData::getQYesF($product->id);
 <div class="input-group">
 		<input type="" class="form-control" required name="q" placeholder="Cantidad ...">
       <span class="input-group-btn">
-		<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-plus-sign"></i> Agregar</button>
+		<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-plus-sign"></i> Agregarrr</button>
       </span>
     </div>
 
