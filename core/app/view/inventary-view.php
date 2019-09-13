@@ -56,10 +56,21 @@ if($px<=$npaginas):
 </div>
 <div class="clearfix"></div>
 <br><table class="table table-bordered table-hover">
-	<thead>	    
+	<thead>	 
+		<th>Codigo de Barras</th>
 	    <th>Marca</th>
 		<th>Producto</th>
+		<!-- <th>imagen</th> -->		
+		<!-- <th>idproducto</th> -->		
+
+		<th>Precio Entrada</th>
+		<th>Precio Salida</th>
 		<th>Disponible</th>
+		<th>Minima</th>
+
+		
+
+
 		<th></th>
 	</thead>
 	<?php foreach($curr_products as $product):
@@ -67,12 +78,20 @@ if($px<=$npaginas):
 	?>
 	<tr class="<?php if($q<=$product->inventary_min/2){ echo "danger";}else if($q<=$product->inventary_min){ echo "warning";}?>">
 		<!-- <td><?php echo $product->id; ?></td> -->
-		
+		<!-- <td>
+		<?php if($product->image!=""):?>
+				<img src="storage/products/<?php echo $product->image;?>" style="width:64px;">
+			<?php endif;?>
+		</td> -->
+		<td><?php echo $product->barcode; ?></td>
 		<td><?php if($product->category_id!=null){echo $product->getCategory()->name;}else{ echo "<center>----</center>"; }  ?></td>
 		<td><?php echo $product->name; ?></td>
+		<td>$ <?php echo number_format($product->price_in,2,'.',','); ?></td>
+		<td><?php echo number_format($product->price_out,2,'.',','); ?></td> 
 		<td>			
 			<?php echo $q; ?>
 		</td>
+			<td><?php echo $product->inventary_min; ?></td>
 		<td style="width:93px;">
 <!--		<a href="index.php?view=input&product_id=<?php echo $product->id; ?>" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-circle-arrow-up"></i> Alta</a>-->
 		<a href="index.php?view=history&product_id=<?php echo $product->id; ?>" class="btn btn-xs btn-success"><i class="glyphicon glyphicon-time"></i> Historial</a>

@@ -61,7 +61,7 @@ if($px<=$npaginas):
 <div class="clearfix"></div>
 <br><table class="table table-bordered table-hover">
 	<thead>
-		<th>Codigo de Barra</th>
+		<th>Codigo de Barraasd</th>
 		<!-- <th>Imagen</th> -->
 		<th>Marca</th>
 		<th>Producto</th>

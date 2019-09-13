@@ -13,6 +13,20 @@
   </div>
 
   <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Categoria*</label>
+    <div class="col-md-6">
+      <input type="text" name="Categoria" required class="form-control" id="Categoria" placeholder="Categoria">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Sub-Categoria*</label>
+    <div class="col-md-6">
+      <input type="text" name="subcategoria" required class="form-control" id="subcategoria" placeholder="Sub-Categoria">
+    </div>
+  </div>
+
+  <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
       <button type="submit" class="btn btn-primary">Agregar Marca</button>
     </div>
