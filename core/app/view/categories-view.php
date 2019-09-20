@@ -1,9 +1,9 @@
 <?php
-			$users = CategoryData::getAll();
-			if(count($users)>0){
-				// si hay usuarios
+	$users = CategoryData::getAll();
+	if(count($users)>0){
+	// si hay usuarios
 			
-		?>
+?>
 <div class="row">
 	<div class="col-md-12">
 		<div class="btn-group pull-right">
@@ -17,7 +17,7 @@
 			<div class="form-group">
 				<label for="inputEmail1" class="col-lg-2 control-label">Marca</label>
 				<div class="col-lg-10">
-					<select name="category_id" class="form-control">
+					<select class="js-example-basic-multiple" name="states[]" multiple="multiple>
 					<option value="">-- SELECCIONE --</option>
 						<?php foreach($categories as $p):?>
 						<option value="<?php echo $p->id; ?>"><?php echo $p->name; ?></option>
@@ -61,8 +61,6 @@
 			</div>
 
 		<br>
-
-		
 		<?php
 			$users = CategoryData::getAll();
 			if(count($users)>0){

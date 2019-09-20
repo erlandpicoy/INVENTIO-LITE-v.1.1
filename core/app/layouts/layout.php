@@ -19,17 +19,49 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-          <script src="plugins/jquery/jquery-2.1.4.min.js"></script>
-<script src="plugins/morris/raphael-min.js"></script>
-<script src="plugins/morris/morris.js"></script>
-  <link rel="stylesheet" href="plugins/morris/morris.css">
-  <link rel="stylesheet" href="plugins/morris/example.css">
-          <script src="plugins/jspdf/jspdf.min.js"></script>
-          <script src="plugins/jspdf/jspdf.plugin.autotable.js"></script>
-          <?php if(isset($_GET["view"]) && $_GET["view"]=="sell"):?>
-<script type="text/javascript" src="plugins/jsqrcode/llqrcode.js"></script>
-<script type="text/javascript" src="plugins/jsqrcode/webqr.js"></script>
-          <?php endif;?>
+    <script src="plugins/jquery/jquery-2.1.4.min.js"></script>
+    <script src="plugins/morris/raphael-min.js"></script>
+    <script src="plugins/morris/morris.js"></script>
+    <link rel="stylesheet" href="plugins/morris/morris.css">
+    <link rel="stylesheet" href="plugins/morris/example.css">
+    <script src="plugins/jspdf/jspdf.min.js"></script>
+    <script src="plugins/jspdf/jspdf.plugin.autotable.js"></script>
+    <?php if(isset($_GET["view"]) && $_GET["view"]=="sell"):?>
+    <script type="text/javascript" src="plugins/jsqrcode/llqrcode.js"></script>
+    <script type="text/javascript" src="plugins/jsqrcode/webqr.js"></script>
+
+     
+    <?php endif;?>
+
+    <script language="javascript">
+			$(document).ready(function(){
+				$("#cbx_estado").change(function () {
+
+					$('#cbx_localidad').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
+					
+					$("#cbx_estado option:selected").each(function () {
+						id_estado = $(this).val();
+						$.post("includes/getMunicipio.php", { id_estado: id_estado }, function(data){
+							$("#cbx_municipio").html(data);
+						});            
+					});
+				})
+			});
+			
+			$(document).ready(function(){
+				$("#cbx_municipio").change(function () {
+					$("#cbx_municipio option:selected").each(function () {
+						id_municipio = $(this).val();
+						$.post("includes/getLocalidad.php", { id_municipio: id_municipio }, function(data){
+							$("#cbx_localidad").html(data);
+						});            
+					});
+				})
+			});
+		</script> 
+     <!-- uso de lselect mutiple -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
+
 
   </head>
 
@@ -227,6 +259,7 @@
     <script src="plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- AdminLTE App -->
     <script src="plugins/dist/js/app.min.js" type="text/javascript"></script>
+    
 
     <script src="plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
@@ -260,6 +293,9 @@
         });
       });
     </script>
+    <!-- select2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
           Both of these plugins are recommended to enhance the
           user experience. Slimscroll is required when using the

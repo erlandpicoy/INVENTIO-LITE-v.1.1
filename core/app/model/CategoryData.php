@@ -2,9 +2,8 @@
 class CategoryData {
 	public static $tablename = "category";
 
-
-
 	public function CategoryData(){
+
 		$this->name = "";
 		$this->categoria = "";
 		$this->subcategoria = "";
@@ -76,6 +75,8 @@ class CategoryData {
 		}
 		return $array;
 	}
+
+	
 
 
 	public static function getLike($q){
