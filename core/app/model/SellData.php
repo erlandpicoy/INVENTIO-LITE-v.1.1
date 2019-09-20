@@ -6,8 +6,12 @@ class SellData {
 		$this->created_at = "NOW()";
 	}
 
-	public function getPerson(){ return PersonData::getById($this->person_id);}
-	public function getUser(){ return UserData::getById($this->user_id);}
+	public function getPerson(){ 
+		return PersonData::getById($this->person_id);
+	}
+	public function getUser(){
+		return UserData::getById($this->user_id);
+	}
 
 	public function add(){
 		$sql = "insert into ".self::$tablename." (total,discount,user_id,created_at) ";

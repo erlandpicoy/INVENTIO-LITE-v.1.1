@@ -1,63 +1,63 @@
 <div class="row">
 	<div class="col-md-12">
-<div class="btn-group  pull-right">
-	<a href="index.php?view=newproduct" class="btn btn-default">Agregar Producto</a>
-<div class="btn-group pull-right">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-    <i class="fa fa-download"></i> Descargar <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu">
-    <li><a href="report/products-word.php">Word 2007 (.docx)</a></li>
-  </ul>
-</div>
-</div>
-		<h1>Lista de Productos</h1>
-		<div class="clearfix"></div>
-<?php
+		<div class="btn-group  pull-right">
+		<a href="index.php?view=newproduct" class="btn btn-default">Agregar Producto</a>
+			<div class="btn-group pull-right">
+  				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    				<i class="fa fa-download"></i> Descargar <span class="caret"></span>
+  				</button>
+  				<ul class="dropdown-menu" role="menu">
+    				<li><a href="report/products-word.php">Word 2007 (.docx)</a></li>
+  				</ul>
+			</div>
+		</div>
+	<h1>Lista de Productos</h1>
+	<div class="clearfix"></div>
+		<?php
 
-$page = 1;
-if(isset($_GET["page"])){
-	$page=$_GET["page"];
-}
-$limit=10;
-if(isset($_GET["limit"]) && $_GET["limit"]!="" && $_GET["limit"]!=$limit){
-	$limit=$_GET["limit"];
-}
+			$page = 1;
+			if(isset($_GET["page"])){
+				$page=$_GET["page"];
+			}
 
-$products = ProductData::getAll();
-if(count($products)>0){
+			$limit=10;
+			if(isset($_GET["limit"]) && $_GET["limit"]!="" && $_GET["limit"]!=$limit){
+				$limit=$_GET["limit"];
+			}
 
-if($page==1){
-$curr_products = ProductData::getAllByPage($products[0]->id,$limit);
-}else{
-$curr_products = ProductData::getAllByPage($products[($page-1)*$limit]->id,$limit);
+			$products = ProductData::getAll();
+			if(count($products)>0){
 
-}
-$npaginas = floor(count($products)/$limit);
- $spaginas = count($products)%$limit;
+			if($page==1){
+			$curr_products = ProductData::getAllByPage($products[0]->id,$limit);
+			}else{
+			$curr_products = ProductData::getAllByPage($products[($page-1)*$limit]->id,$limit);
 
-if($spaginas>0){ $npaginas++;}
+			}
+			$npaginas = floor(count($products)/$limit);
+			$spaginas = count($products)%$limit;
 
-	?>
+			if($spaginas>0){ $npaginas++;}
+
+		?>
 
 	<h3>Pagina <?php echo $page." de ".$npaginas; ?></h3>
-<div class="btn-group pull-right">
-<?php
-$px=$page-1;
-if($px>0):
-?>
-<a class="btn btn-sm btn-default" href="<?php echo "index.php?view=products&limit=$limit&page=".($px); ?>"><i class="glyphicon glyphicon-chevron-left"></i> Atras </a>
-<?php endif; ?>
+	<div class="btn-group pull-right">
+	<?php
+		$px=$page-1;
+		if($px>0):
+	?>
+	<a class="btn btn-sm btn-default" href="<?php echo "index.php?view=products&limit=$limit&page=".($px); ?>"><i class="glyphicon glyphicon-chevron-left"></i> Atras </a>
+	<?php endif; ?>
 
-<?php 
-$px=$page+1;
-if($px<=$npaginas):
-?>
-<a class="btn btn-sm btn-default" href="<?php echo "index.php?view=products&limit=$limit&page=".($px); ?>">Adelante <i class="glyphicon glyphicon-chevron-right"></i></a>
-<?php endif; ?>
-
-
+	<?php 
+		$px=$page+1;
+		if($px<=$npaginas):
+	?>
+	<a class="btn btn-sm btn-default" href="<?php echo "index.php?view=products&limit=$limit&page=".($px); ?>">Adelante <i class="glyphicon glyphicon-chevron-right"></i></a>
+	<?php endif; ?>
 </div>
+
 <div class="clearfix"></div>
 <br><table class="table table-bordered table-hover">
 	<thead>

@@ -75,9 +75,23 @@ class CategoryData {
 		}
 		return $array;
 	}
-
 	
-
+	public static function getLike2($q){
+		$sql = "select * from ".self::$tablename." where name like '%$q%'";
+		$query = Executor::doit($sql);
+		$array = array();
+		$cnt = 0;
+		while($r = $query[0]->fetch_array()){
+			$array[$cnt] = new CategoryData();
+			$array[$cnt]->id = $r['id'];
+			$array[$cnt]->name = $r['name'];
+			$array[$cnt]->categoria = $r['categoria'];
+			$array[$cnt]->subcategoria = $r['subcategoria'];
+			$array[$cnt]->created_at = $r['created_at'];
+			$cnt++;
+		}
+		return $array;
+	}
 
 	public static function getLike($q){
 		$sql = "select * from ".self::$tablename." where name like '%$q%'";

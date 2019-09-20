@@ -16,10 +16,10 @@
 	</div>
 
 <?php if(isset($_GET["product"])):?>
-	<?php
-$products = ProductData::getLike($_GET["product"]);
-if(count($products)>0){
-	?>
+<?php
+	$products = ProductData::getLike($_GET["product"]);
+	if(count($products)>0){
+?>
 <!-- <h3>Resultados de la Busqueda</h3> -->
 	<!-- <div class="table-responsive">   -->
 

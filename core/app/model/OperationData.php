@@ -67,7 +67,10 @@ class OperationData {
 		return Model::many($query[0],new OperationData());
 	}
 
-	public function getProduct(){ return ProductData::getById($this->product_id);}
+	public function getProduct(){ 
+		return ProductData::getById($this->product_id);
+	}
+	
 	public function getOperationtype(){ return OperationTypeData::getById($this->operation_type_id);}
 
 

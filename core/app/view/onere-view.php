@@ -12,6 +12,9 @@
 <?php
 $sell = SellData::getById($_GET["id"]);
 $operations = OperationData::getAllProductsBySellId($_GET["id"]);
+
+$fruta = OperationData::getAllProductsBySellId($_GET["id"]);
+
 $total = 0;
 ?>
 <?php
@@ -33,16 +36,17 @@ if(isset($_COOKIE["selled"])){
 }
 
 ?>
-<table class="table table-bordered">
+	<table class="table table-bordered">
 <?php if($sell->person_id!=""):
-$client = $sell->getPerson();
+	$client = $sell->getPerson();
 ?>
 <tr>
 	<td style="width:150px;">Proveedor</td>
 	<td><?php echo $client->name." ".$client->lastname;?></td>
 </tr>
-
 <?php endif; ?>
+
+
 <?php if($sell->user_id!=""):
 $user = $sell->getUser();
 ?>
@@ -51,6 +55,18 @@ $user = $sell->getUser();
 	<td><?php echo $user->name." ".$user->lastname;?></td>
 </tr>
 <?php endif; ?>
+
+<?php if($sell->user_id!=""):
+$user = $sell->getUser();
+?>
+<tr>
+	<td>Atendido por</td>
+	<td><?php echo $user->name." ".$user->lastname;?></td>
+</tr>
+<?php endif; ?>
+
+
+
 </table>
 <br><table class="table table-bordered table-hover">
 	<thead>
