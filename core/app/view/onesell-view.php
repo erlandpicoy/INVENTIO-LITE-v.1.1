@@ -46,7 +46,7 @@
 		$user = $sell->getUser();
 		$user = $sell->getUser();
 		$user = $sell->getUser();
-
+$operations = OperationData::getAllProductsBySellId($sell->id);
 		// $user = $sell->getRes();
 	?>
 	<tr>

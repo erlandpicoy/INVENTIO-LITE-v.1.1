@@ -13,6 +13,14 @@ class SellData {
 		return UserData::getById($this->user_id);
 	}
 
+
+	public static function getAll2($id){
+		$sql = "select * from ".self::$tablename." where id=$id";
+	   $query = Executor::doit($sql);
+	   return Model::one($query[0],new SellData());
+   }
+
+
 	public function add(){
 		$sql = "insert into ".self::$tablename." (total,discount,user_id,created_at) ";
 		$sql .= "value ($this->total,$this->discount,$this->user_id,$this->created_at)";

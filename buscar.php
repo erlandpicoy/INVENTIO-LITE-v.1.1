@@ -15,16 +15,12 @@
 
             $conexion = mysqli_connect("localhost","root","Odon1234","inventiolite");
 
-            $query  = $conexion->query("SELECT * FROM category WHERE name LIKE '%".$b."%'");
-
-             
-         
+            $query  = $conexion->query("SELECT * FROM category WHERE name LIKE '%".$b."%'");       
 
                   while ( $row = $query->fetch_assoc() )
                     {
                         $name = $row['name'];
-                        $id = $row['id'];
-                         
+                        $id = $row['id'];                        
                         echo $id." - ".$name."<br /><br />";
                     } 
             

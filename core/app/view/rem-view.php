@@ -1,27 +1,27 @@
 <div class="row">
 	<div class="col-md-12">
-	<h2>Lista de Pedidos</h2>
-	<p><b>Buscar y Agregar productos a la lista:</b></p>
+		<h2>Lista de Pedidos</h2>
+		<p><b>Buscar y Agregar productos a la lista:</b></p>
 		<form>
-		<div class="row">
-			<div class="col-md-3">
-				<input type="hidden" name="view" value="rem">
-				<input type="text" name="product" class="form-control">
+			<div class="row">
+				<div class="col-md-3">
+					<input type="hidden" name="view" value="rem">
+					<input type="text" name="product" class="form-control">
+				</div>
+				<div class="col-md-3">
+					<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i> Buscar</button>
+				</div>
 			</div>
-			<div class="col-md-3">
-			<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i> Buscar</button>
-			</div>
-		</div>
 		</form>
 	</div>
 
-<?php if(isset($_GET["product"])):?>
-<?php
-	$products = ProductData::getLike($_GET["product"]);
-	if(count($products)>0){
-?>
+	<?php if(isset($_GET["product"])):?>
+	<?php
+		$products = ProductData::getLike($_GET["product"]);
+		if(count($products)>0){
+	?>
 <!-- <h3>Resultados de la Busqueda</h3> -->
-	<!-- <div class="table-responsive">   -->
+<!-- <div class="table-responsive">   -->
 
 	<div class="col-md-12">
 		<table id="example" class="table table-bordered  table-hover">
@@ -152,7 +152,7 @@ $product = ProductData::getById($p["product_id"]);
 	<div class="form-group">
     	<label for="inputEmail1" class="col-lg-1 control-label">Efectivo</label>
     	<div class="col-lg-4">
-      		<input type="text" name="money" required class="form-control" id="money" placeholder="Efectivo">
+      		<input type="text" name="money" required class="form-control" id="money" placeholder="Efectivo" value= "<?php echo  $total ?>">
     	</div>
 	  </div> 
 
@@ -194,8 +194,8 @@ $product = ProductData::getById($p["product_id"]);
 			</div>
 		</div> -->
 		
-			<a href="index.php?view=clearrem" class="btn btn-lg btn-danger" style="margin: 10px"> Cancelar</a>
-			<button class="btn btn-lg btn-primary">Ingresar Mercaderia</button>
+		<a href="index.php?view=clearrem" class="btn btn-lg btn-danger" style="margin: 10px"> Cancelar</a>
+		<button class="btn btn-lg btn-primary">Ingresar Mercaderia</button>
 
 			
 		
@@ -205,7 +205,7 @@ $product = ProductData::getById($p["product_id"]);
 <script>
 	$("#processsell").submit(function(e){
 		money = $("#money").val();
-		if(money<<?php echo $total;?>){
+		if(money< <?php echo $total;?>){
 			alert("No se puede efectuar la operacion");
 			e.preventDefault();
 		}else{
@@ -217,32 +217,33 @@ $product = ProductData::getById($p["product_id"]);
 </script>
 
 <script>
-$(document).ready(function() {    
-    $('#example').DataTable({
-	//para cambiar el lenguaje a español
-	"paging":   false,
-                 "ordering": false,
-                 "info":     false,
-        	"language": {
-                "lengthMenu": "Mostrar _MENU_ registros",
-                "zeroRecords": "No se encontraron resultados",
-                "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
-                "sSearch": "Buscar:",
-                "oPaginate": {
-                    "sFirst": "Primero",
-                    "sLast":"Último",
-                    "sNext":"Siguiente",
-                    "sPrevious": "Anterior"
-			     },
-				 "sProcessing":"Procesando...",
-				 
-            }
-    });     
-});
-
+	$(document).ready(function() {  
+		//  
+		$('#examplee').DataTable({
+		//para cambiar el lenguaje a español
+		"paging":   false,
+					"ordering": false,
+					"info":     false,
+				"language": {
+					"lengthMenu": "Mostrar _MENU_ registros",
+					"zeroRecords": "No se encontraron resultados",
+					"info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+					"infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+					"infoFiltered": "(filtrado de un total de _MAX_ registros)",
+					"sSearch": "Buscar:",
+					"oPaginate": {
+						"sFirst": "Primero",
+						"sLast":"Último",
+						"sNext":"Siguiente",
+						"sPrevious": "Anterior"
+					},
+					"sProcessing":"Procesando...",
+					
+				}
+		});     
+	});
 </script>
+
 </div>
 </div>
 
